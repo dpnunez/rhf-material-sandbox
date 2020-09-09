@@ -1,9 +1,10 @@
 import React from 'react'
+import { Button } from '@material-ui/core'
 import { useForm } from 'react-hook-form'
 import styled from 'styled-components'
 
 import { TextField } from '../components/TextField'
-import { Button } from '@material-ui/core'
+import { TextFieldMasked } from '../components/TextFieldMask'
 
 
 const Home = () => {
@@ -12,7 +13,8 @@ const Home = () => {
 
 		<FormContainer onSubmit={handleSubmit((values) => console.log(values))}>
 			<FieldsContainer>
-				<TextField label='Normal input' inputRef={register} inputProps={{name: 'normalTextField'}} />
+				<TextField label='Normal TextField' inputRef={register} inputProps={{name: 'normalTextField'}} />
+				<TextFieldMasked label='Masked TextField' inputRef={register} inputProps={{name: 'maskedTextField'}} />
 			</FieldsContainer>
 			<Controls>
 				<Button onClick={() => console.log(getValues())} color='primary' variant='outlined'>Show Values (LOG)</Button>
@@ -31,8 +33,10 @@ const FormContainer = styled.form`
 	height: 100vh;
 `
 const FieldsContainer = styled.section`
+	display: flex;
 	flex-basis: 100%;
 	overflow-y: auto;
+	padding: 10px;
 `
 
 const Controls = styled.section`

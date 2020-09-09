@@ -1,5 +1,5 @@
 import React from 'react';
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { createMuiTheme, ThemeProvider, StylesProvider } from '@material-ui/core/styles';
 import { createGlobalStyle } from 'styled-components'
 import { Home } from './routes/Home'
 
@@ -25,10 +25,12 @@ const theme = createMuiTheme({
 
 const App = () => {
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Home />
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <GlobalStyle />
+        <Home />
+      </ThemeProvider>
+    </StylesProvider>
   )
 }
 
