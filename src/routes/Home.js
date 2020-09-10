@@ -40,7 +40,7 @@ const Home = () => {
 				{isLoading ? <h1>loading</h1> : (
 					<>
 						<GroupInput>
-							<h1 style={{display: 'block'}}>TextFields</h1>
+							<h1>TextFields</h1>
 							<Flex>
 								<TextField label='Normal (no Controller)' inputRef={register} inputProps={{name: 'normalTextField'}} />
 								<Controller control={control} name='normalTextFieldController' as={TextField} label='Normal (Controller)' />
@@ -50,10 +50,11 @@ const Home = () => {
 								<Controller control={control} as={TextFieldMasked} mask={[{mask: '(00) 0000-0000'}, {mask: '(00) 00000-0000'}]} label='Multiple masked (Controller)' inputRef={register} name='multipleMaskWithController' />
 							</Flex>
 							<Note>
-								<span>Note:</span> Is recomended to use Custom TextFields only with Controller component. Aparently, in "normal" cases, there is not problems use just providing a a inputRef by the component, but on maskedComponents (with this implementantion) the reset will not working correctly.
+								<span>Note:</span> Is recomended to use Custom TextFields only with Controller component. Aparently, in "normal" cases, there is not problems use just providing an inputRef directly by the component, but on maskedComponents (with this implementantion) the reset will not working correctly.
 							</Note>
 						</GroupInput>
 						<GroupInput>
+							<h1>Selects</h1>
 							<Flex>
 								<SelectNative inputRef={register} label='Native select' inputProps={{name: 'nativeSelect'}} >
 									<option aria-label="None" value="" />
@@ -70,6 +71,9 @@ const Home = () => {
 									<MenuItem value={30}>Thirty</MenuItem>
 								</Select>
 							</Flex>
+							<Note>
+								<span>Note:</span> (Material spec) Native selects only supports values as string, so if you want to use object or others kinds of data consider use the MUI select.
+							</Note>
 						</GroupInput>
 					</>
 				)}
