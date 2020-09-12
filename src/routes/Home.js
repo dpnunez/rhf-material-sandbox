@@ -48,9 +48,9 @@ const Home = () => {
 									<TextField label='Normal (no Controller)' inputRef={register} inputProps={{name: 'normalTextField'}} />
 									<Controller control={control} name='normalTextFieldController' as={TextField} label='Normal (Controller)' />
 									<TextFieldMasked mask={'00/00/0000'} label='Masked' inputRef={register} inputProps={{name: 'maskTextField'}} />
-									<Controller control={control} as={TextFieldMasked}  mask={'00/00/0000'} label='Masked (Controller)' inputRef={register} name='maskTextFieldWithController' />
+									<Controller control={control} as={TextFieldMasked}  mask={'00/00/0000'} label='Masked (Controller)' name='maskTextFieldWithController' />
 									<TextFieldMasked mask={[{mask: '(00) 0000-0000'}, {mask: '(00) 00000-0000'}]} label='Multiple Mask' inputRef={register} inputProps={{name: 'multipleMask'}} />
-									<Controller control={control} as={TextFieldMasked} mask={[{mask: '(00) 0000-0000'}, {mask: '(00) 00000-0000'}]} label='Multiple masked (Controller)' inputRef={register} name='multipleMaskWithController' />
+									<Controller control={control} as={TextFieldMasked} mask={[{mask: '(00) 0000-0000'}, {mask: '(00) 00000-0000'}]} label='Multiple masked (Controller)' name='multipleMaskWithController' />
 								</Flex>
 								<Note>
 									<span>Note:</span> Is recomended to use Custom TextFields only with Controller component. Aparently, in "normal" cases, there is not problems use just providing an inputRef directly by the component, but on maskedComponents (with this implementantion) the reset will not working correctly.
